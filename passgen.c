@@ -4,7 +4,7 @@
 - v1.0:
   * Basic CMLI 
   * Choose Password Length
-  * Sample password is generated of chosen length
+  * Demo password is generated of chosen length
   * Print password and exit
 //////////////////////////////////////////////////////////////
 */
@@ -18,7 +18,7 @@ int main(){
     int len;
 
     printf("WELCOME TO PASSWORDGEN :)\n");
-    printf("Generae unique and secure passwords easily!\n");
+    printf("Generate unique and secure passwords easily!\n");
     passgen();
 
     printf("\n\nGoodBye :)\n\n");
@@ -29,7 +29,7 @@ int main(){
 int passgen(){
     int i,len;
 
-    printf("\nPasswords are generated using [a-z]\n");
+    printf("\nPasswords are generated using [X-X]\n");
     printf("\nEnter the length of password: ");
     scanf("%d",&len);
     printf("Password: ");

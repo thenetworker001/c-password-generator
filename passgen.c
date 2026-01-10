@@ -11,6 +11,7 @@
 #include <time.h>
 
 #define MAX_LEN 25
+#define MIN_LEN 8
 
 int passgen(int);
 
@@ -29,7 +30,7 @@ int main(){
         printf("\n\nEnter a valid input !!!\n\n");
         return 0;
     }
-    if(len<=25 && len>=8){
+    if(len<=MAX_LEN && len>=MIN_LEN){
         passgen(len);
     }else{
         len<8 ? printf("\nMinimun length is 8 !!\n\n") : printf("\nMaximum length is 25 !!\n\n");
@@ -42,7 +43,7 @@ int main(){
 
 int passgen(int len){
     int i,randomNum;
-    char password[26];
+    char password[MAX_LEN+1];
 
     for(i=0;i<len;i++){
         randomNum = rand() % 93;

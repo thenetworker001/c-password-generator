@@ -43,10 +43,11 @@ int main(){
 
 int passgen(int len){
     int i,randomNum;
+    int range = 93;
     char password[MAX_LEN+1];
 
     for(i=0;i<len;i++){
-        randomNum = rand() % 93;
+        randomNum = rand() % range;
         password[i] = randomNum + 33;
     }
     password[i] = '\0';

@@ -1,8 +1,8 @@
 /*
-/////////////// PASSWORD GENERATOR USING C v2.0///////////////
+/////////////// PASSWORD GENERATOR USING C v3.0///////////////
 - Written in pure C using standard libraries only 
 - v3.0:
-  * Characters used: (A-Z),(a-z),(0-9) and all characters in ASCII table
+  * Characters used: All printable ASCII characters except whitespace (33-126).
 //////////////////////////////////////////////////////////////
 */
 
@@ -12,16 +12,18 @@
 
 #define MAX_LEN 25
 #define MIN_LEN 8
+#define ASCII_START 33
+#define ASCII_RANGE 94
 
-int passgen(int);
+void passgen(int);
 
 int main(){
     int len;
     srand(time(NULL));
 
     printf("\t| WELCOME TO PASSWORDGEN v3.0 |\t\n");
-    printf("\n-> Generae unique and secure passwords easily!\n");
-    printf("\n-> Characters used: [A-Z],[a-z],[0-9] and all special characters in ASCII Table\n");
+    printf("\n-> Generate unique and secure passwords easily!\n");
+    printf("\n-> Characters used: All printable ASCII characters except whitespace (ASCII 33-126)\n");
     printf("\n-> Maximum size of password is 25 characters\n");
     printf("\n");
 
@@ -29,28 +31,31 @@ int main(){
     if (scanf("%d",&len) != 1 || len<=0){
         printf("\n\nEnter a valid input !!!\n\n");
         return 0;
-    }
-    if(len<=MAX_LEN && len>=MIN_LEN){
-        passgen(len);
-    }else{
-        len<8 ? printf("\nMinimun length is 8 !!\n\n") : printf("\nMaximum length is 25 !!\n\n");
+   }
+    else if(len<MIN_LEN){
+        printf("\nMinimum length is 8 characters\n\n");
         return 0;
+    }
+    else if(len>MAX_LEN){
+        printf("\nMaximum length allowed is 25 characters\n\n");
+        return 0;
+    }
+    else{
+       passgen(len);
     }
     
     printf("\nGoodBye :)\n\n");
     return 0;
 }
 
-int passgen(int len){
+void passgen(int len){
     int i,randomNum;
-    int range = 93;
     char password[MAX_LEN+1];
 
     for(i=0;i<len;i++){
-        randomNum = rand() % range;
-        password[i] = randomNum + 33;
+        randomNum = rand() % ASCII_RANGE;
+        password[i] = randomNum + ASCII_START;
     }
     password[i] = '\0';
     printf("\nGenerated Password: %s\n",password);
-    return 0;
 }

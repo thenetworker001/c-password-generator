@@ -5,12 +5,17 @@ This project was built as a learning exercise to practice core C programming con
 
 ---
 
+### Version 5.0
+- Date: 13-01-2026
+- Added password writing into a file in current directory with custom name
+
 ## Features
 - User-defined password length.
-- Printable ASCII character set (ASCII 33 '!' to 126 '-')
+- Passwords generated using printable ASCII character set (ASCII 33 '!' to 126 '-')
 - Input validation with exit status codes.
 - Safe buffer handling using pointers.
 - Modular function-based design.
+- Save generated passwords into file
 
 ---
 
